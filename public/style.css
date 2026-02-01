@@ -29,7 +29,6 @@ input[type="text"] {
     margin-bottom: 12px;
     border-radius: 6px;
     border: 1px solid #ccc;
-    outline: none;
     font-size: 14px;
 }
 
@@ -43,7 +42,6 @@ input[type="text"] {
     display: flex;
     align-items: center;
     gap: 6px;
-    cursor: pointer;
     font-size: 14px;
 }
 
@@ -57,18 +55,10 @@ button {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
 }
 
 button:hover {
     background: #218838;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-button:active {
-    transform: translateY(0);
-    box-shadow: none;
 }
 
 #results {

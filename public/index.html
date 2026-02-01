@@ -8,22 +8,29 @@
 <body>
 
 <div class="container">
-    <h1>🍽️ AI Recipe Finder</h1>
+    <h1>AI Recipe Finder</h1>
 
-    <input type="text" id="ingredients" placeholder="Enter ingredients (comma separated)">
-    
-    <div class="radio-group">
-        <label>
-            <input type="radio" name="type" value="veg" checked>
-            Veg
-        </label>
-        <label>
-            <input type="radio" name="type" value="non-veg">
-            Non-Veg
-        </label>
-    </div>
+    <form id="recipeForm">
+        <input
+            type="text"
+            id="ingredients"
+            placeholder="Enter ingredients (comma separated)"
+            required
+        >
 
-    <button id="findBtn">Find Recipes</button>
+        <div class="radio-group">
+            <label>
+                <input type="radio" name="type" value="veg" checked>
+                Veg
+            </label>
+            <label>
+                <input type="radio" name="type" value="non-veg">
+                Non-Veg
+            </label>
+        </div>
+
+        <button type="submit">Find Recipes</button>
+    </form>
 
     <div id="results"></div>
 </div>

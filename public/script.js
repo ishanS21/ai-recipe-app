@@ -1,51 +1,50 @@
-document.getElementById("findBtn").addEventListener("click", findRecipes);
+const form = document.getElementById("recipeForm");
+const resultsDiv = document.getElementById("results");
 
-async function findRecipes() {
-    const ingredientsInput = document.getElementById("ingredients").value;
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-    if (!ingredientsInput) {
-        alert("Please enter ingredients");
-        return;
-    }
+    const ingredientsInput = document.getElementById("ingredients").value.trim();
+    const type = document.querySelector("input[name='type']:checked").value;
+
+    if (!ingredientsInput) return;
 
     const ingredients = ingredientsInput
-        .toLowerCase()
         .split(",")
-        .map(i => i.trim());
+        .map(i => i.trim().toLowerCase())
+        .filter(Boolean);
 
-    const type = document.querySelector('input[name="type"]:checked').value;
-
-    const resultsDiv = document.getElementById("results");
-    resultsDiv.innerHTML = "<p style='text-align:center;'>🍳 Cooking up ideas...</p>";
+    resultsDiv.style.display = "block";
+    resultsDiv.innerHTML = "⏳ Generating recipes… please wait";
 
     try {
-        const response = await fetch("http://localhost:3000/recipes", {
+        const response = await fetch("/recipes", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ ingredients, type })
         });
 
-        const recipes = await response.json();
+        const data = await response.json();
+
+        if (!Array.isArray(data) || data.length === 0) {
+            resultsDiv.innerHTML = "No recipes found. Try different ingredients.";
+            return;
+        }
 
         resultsDiv.innerHTML = "";
 
-        recipes.slice(0, 5).forEach(recipe => {
-            const div = document.createElement("div");
-            div.className = "recipe";
-
-            div.innerHTML = `
-                <h3>${recipe.name}</h3>
-                <p><strong>Ingredients:</strong> ${recipe.ingredients.join(", ")}</p>
-                <p>${recipe.description}</p>
+        data.forEach(recipe => {
+            resultsDiv.innerHTML += `
+                <div class="recipe">
+                    <h3>${recipe.name}</h3>
+                    <p><strong>Ingredients:</strong> ${recipe.ingredients.join(", ")}</p>
+                    <p>${recipe.description}</p>
+                </div>
             `;
-
-            resultsDiv.appendChild(div);
         });
 
-    } catch (err) {
-        resultsDiv.innerHTML = "Something went wrong 😢";
-        console.error(err);
+    } catch {
+        resultsDiv.innerHTML =
+            "⚠️ Service is waking up. Please try again in a few seconds.";
     }
-}
+});
