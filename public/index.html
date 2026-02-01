@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Recipe Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🍽️ AI Recipe Finder</h1>
+
+    <input type="text" id="ingredients" placeholder="Enter ingredients (comma separated)">
+    
+    <div class="radio-group">
+        <label>
+            <input type="radio" name="type" value="veg" checked>
+            Veg
+        </label>
+        <label>
+            <input type="radio" name="type" value="non-veg">
+            Non-Veg
+        </label>
+    </div>
+
+    <button id="findBtn">Find Recipes</button>
+
+    <div id="results"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
