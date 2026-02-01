@@ -1,11 +1,17 @@
 body {
+    margin: 0;
+    min-height: 100vh;
     font-family: Arial, sans-serif;
     background: #f2f2f2;
+    background-image: url("./images/bg2.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .container {
     width: 400px;
-    margin: 50px auto;
+    margin: 40px auto 20px;
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -14,37 +20,78 @@ body {
 
 h1 {
     text-align: center;
+    margin-bottom: 15px;
 }
 
 input[type="text"] {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
 }
 
 .radio-group {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background: #28a745;
     color: white;
     border: none;
+    border-radius: 6px;
     font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
 }
 
 button:hover {
     background: #218838;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+#results {
+    margin-top: 15px;
+}
+
+#results:empty {
+    display: none;
 }
 
 .recipe {
     background: #f7f7f7;
-    padding: 10px;
+    padding: 12px;
     margin-top: 10px;
-    border-radius: 5px;
+    border-radius: 6px;
+}
+
+.recipe h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+
+.recipe p {
+    margin: 4px 0;
+    font-size: 14px;
 }

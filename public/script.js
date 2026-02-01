@@ -16,7 +16,7 @@ async function findRecipes() {
     const type = document.querySelector('input[name="type"]:checked').value;
 
     const resultsDiv = document.getElementById("results");
-    resultsDiv.innerHTML = "Finding recipes... 🍳";
+    resultsDiv.innerHTML = "<p style='text-align:center;'>🍳 Cooking up ideas...</p>";
 
     try {
         const response = await fetch("http://localhost:3000/recipes", {
