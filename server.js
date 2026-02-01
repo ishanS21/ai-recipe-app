@@ -8,7 +8,7 @@ import Groq from "groq-sdk";
 // App setup
 // --------------------
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Fix __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -154,5 +154,6 @@ JSON format:
 // Start server
 // --------------------
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
+
