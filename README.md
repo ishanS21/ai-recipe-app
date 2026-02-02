@@ -16,7 +16,7 @@ The application uses an AI model to intelligently generate recipe ideas, priorit
 - Deployed online
 
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - HTML
