@@ -61,7 +61,7 @@ The application uses an AI model to intelligently generate recipe ideas, priorit
 ## Local Setup
 
 ```bash
-git clone https://github.com/your-username/ai-recipe-app.git
+git clone https://github.com/ishanS21/ai-recipe-app.git
 cd ai-recipe-app
 npm install
 node server.js
